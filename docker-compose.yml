@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  db_con:
+    image: db
+    build: .
+    expose: ["3307"]
+
+  app:
+    image: app
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db_con
+
